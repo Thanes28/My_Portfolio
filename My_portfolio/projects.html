@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Projects</title>
+  <meta name="description" content="Some of my distinguished works">
+  <link rel="stylesheet" href="projects.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="projects-page">
+  <header class="p-header">
+    <div class="p-wrap">
+      <a class="p-logo" href="main.html">Portfolio</a>
+  <a class="p-home-btn" href="main.html">Home</a>
+  <!-- Navigation intentionally removed to keep the Projects page focused -->
+    </div>
+  </header>
+
+  <main class="p-wrap">
+    <section class="projects-hero">
+      <h1>My Projects</h1>
+      <p class="subtitle">Some Of My Distinguished Works</p>
+    </section>
+
+    <section class="projects-grid" aria-label="Projects gallery">
+      <!-- Card 1: THANES ATM (replacing Library Management System) -->
+  <article class="card" data-title="ATM System" data-desc="Assembly ATM system (TASM) — THANES.ASM" data-img="atm_project.jpg" data-asm="THANES.ASM" data-doc="Thaneswaran TP070624 CSLLT.pdf">
+          <figure class="card-media">
+            <img src="atm_project.jpg" alt="THANES thumbnail" loading="lazy">
+          </figure>
+          <div class="card-body">
+            <small class="category">ATM system assembly language</small>
+            <h3 class="card-title">ATM System (TASM)</h3>
+          </div>
+        </article>
+
+      <!-- Card 2 -->
+  <article class="card" data-title="Email Server Using Linux" data-desc="Postfix and Dovecot" data-img="Email server.jpg" data-doc="SNA Individual assignment Thaneswaran.pdf" data-only-doc="true">
+        <figure class="card-media">
+          <img src="Email server.jpg" alt="Email server thumbnail" loading="lazy">
+        </figure>
+        <div class="card-body">
+          <small class="category">Email Server</small>
+          <h3 class="card-title">Email Server Using Linux</h3>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card" data-title="Networking" data-desc="Networking with Access Control List" data-img="Networking.jpg" data-doc="" data-only-doc="true">
+        <figure class="card-media">
+        <figure class="card-media">
+          <img src="Networking.jpg" alt="Networking thumbnail" loading="lazy">
+        </figure>
+        <div class="card-body">
+          <small class="category">Networking Cisco</small>
+          <h3 class="card-title">Access Control List</h3>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card" data-title="Boston House Price Prediction" data-desc="Machine Learning — Boston House Price Prediction" data-img="monash.jpg">
+        <figure class="card-media">
+          <img src="monash.jpg" alt="House price thumbnail" loading="lazy">
+        </figure>
+        <div class="card-body">
+          <small class="category">Machine Learning</small>
+          <h3 class="card-title">Boston House Price Prediction</h3>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- Modal / lightbox for project details -->
+  <div id="proj-modal" class="proj-modal" aria-hidden="true">
+    <div class="proj-modal-inner" role="dialog" aria-modal="true">
+      <button id="proj-close" class="proj-close" aria-label="Close">✕</button>
+      <div class="proj-modal-media"><img id="proj-img" src="" alt=""></div>
+      <div class="proj-modal-info">
+        <h2 id="proj-title">Title</h2>
+        <p id="proj-desc">Description</p>
+        <div class="proj-actions">
+          <a id="proj-demo" class="btn" href="#">Live Demo</a>
+          <a id="proj-repo" class="btn" href="#">Repository</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="projects.js" defer></script>
+</body>
+</html>

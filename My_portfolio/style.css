@@ -1,0 +1,1238 @@
+/* Skills Section */
+.skills-column { padding: 18px; }
+.skills-column.card { background: linear-gradient(180deg,#ffffff, #fbfdff); border-radius: 12px; box-shadow: 0 8px 30px rgba(2,6,23,0.06); }
+.skills-column { padding: 18px; }
+.skills-column.card { background: linear-gradient(180deg,#ffffff, #fbfdff); border-radius: 12px; box-shadow: 0 8px 30px rgba(2,6,23,0.06); }
+.skills-section {
+    position: relative;
+    overflow: hidden;
+    /* background image for Skills section (replaceable) */
+    background-image: url('skill-background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* spacing kept the same so layout is unchanged */
+    padding: 140px 0 80px 0; /* larger top padding for desktop */
+    margin-top: 120px; /* ensure a clear gap from the section above */
+    z-index: 12; /* place skills section above decorative layers if needed */
+}
+
+/* Distinct animated layers for Skills (different from certificates) */
+/* 1) Gentle slow pan of the background image for parallax/depth */
+.skills-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    /* use the same image but slightly enlarged to pan smoothly */
+    background-image: url('skill-background.jpg');
+    background-size: 140% 140%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    transform: translateZ(0);
+    animation: skills-bg-pan 28s linear infinite;
+}
+
+/* 2) Soft floating particle layer created with tiny radial dots */
+.skills-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    /* many tiny dots via radial-gradient tile */
+    background-image: radial-gradient(circle, rgba(255,255,255,0.98) 1px, rgba(255,255,255,0) 2px);
+    background-size: 12px 12px;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    transform: translateZ(0);
+    /* move the particle layer slowly upwards for a drifting effect */
+    animation: skills-particles 22s linear infinite;
+}
+
+@keyframes skills-bg-pan {
+    0% { background-position: 40% 45%; }
+    50% { background-position: 60% 55%; }
+    100% { background-position: 40% 45%; }
+}
+
+@keyframes skills-particles {
+    0% { background-position: 0% 100%; opacity: 0.05; }
+    50% { background-position: 50% 20%; opacity: 0.08; }
+    100% { background-position: 100% -60%; opacity: 0.05; }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .skills-section::before,
+    .skills-section::after { animation: none !important; transition: none !important; }
+}
+    50% { background-position: 60% 55%; }
+    100% { background-position: 40% 45%; }
+}
+
+@keyframes skills-particles {
+    0% { background-position: 0% 100%; opacity: 0.05; }
+    50% { background-position: 50% 20%; opacity: 0.08; }
+    100% { background-position: 100% -60%; opacity: 0.05; }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .skills-section::before,
+    .skills-section::after { animation: none !important; transition: none !important; }
+}
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 4px;
+    box-shadow: 0 1px 4px rgba(99,102,241,0.08);
+    display: inline-block;
+    vertical-align: middle;
+}
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    color: #fff;
+    font-size: 0.98rem;
+    font-weight: 600;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    transition: width 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.group-collab-img {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 12px;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.10);
+}
+.skills-tech {
+    text-align: left;
+}
+.tech-skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 10px;
+}
+.tech-skill {
+    background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
+    color: #222;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 10px 22px;
+    font-size: 1.08rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 1px 4px rgba(99,102,241,0.08);
+}
+.skills-tools {
+    text-align: left;
+}
+.tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+.tool-badge {
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 8px 18px;
+    font-size: 0.98rem;
+    box-shadow: 0 1px 4px rgba(99,102,241,0.10);
+    letter-spacing: 0.5px;
+    transition: background 0.2s, color 0.2s, transform 0.18s;
+    cursor: default;
+}
+.tool-badge:hover {
+    background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
+    color: #6366f1;
+    transform: scale(1.07);
+}
+@media (max-width: 1100px) {
+    .skills-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+    .skills-nontech, .skills-tech, .skills-tools {
+        min-width: 0;
+        width: 90vw;
+        max-width: 500px;
+    }
+}
+/* Skills Section */
+.skills-section {
+    width: 100vw;
+    max-width: 100%;
+    min-height: 700px;
+    position: relative;
+    padding: 60px 0 80px 0;
+    overflow: hidden;
+    z-index: 5;
+}
+.skills-section h2 {
+    text-align: center;
+    font-size: 2.1rem;
+    margin-bottom: 36px;
+    color: #2d2d2d;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
+    display: inline-block;
+    padding: 16px 48px;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(99,102,241,0.08);
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+}
+.skills-animated-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+    background: linear-gradient(270deg, #e0e7ff, #f0fdfa, #a5b4fc, #06b6d4, #e0e7ff);
+    background-size: 400% 400%;
+    animation: skills-gradient-bg 12s ease-in-out infinite;
+    opacity: 0.7;
+}
+@keyframes skills-gradient-bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.skills-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.92);
+    border-radius: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 36px 32px 32px 32px;
+}
+.skills-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: space-between;
+}
+.skills-nontech, .skills-tech {
+    flex: 1 1 320px;
+    min-width: 280px;
+}
+.skills-nontech h3, .skills-tech h3, .skills-tools h3 {
+    font-size: 1.25rem;
+    margin-bottom: 18px;
+    color: #6366f1;
+    font-weight: 700;
+}
+.skill-block {
+    margin-bottom: 24px;
+    background: #f0fdfa;
+    border-radius: 14px;
+    padding: 18px 18px 12px 18px;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.skill-icon {
+    font-size: 1.5rem;
+    margin-right: 8px;
+}
+.skill-title {
+    font-weight: 600;
+    font-size: 1.08rem;
+    margin-bottom: 4px;
+}
+.skill-desc {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 6px;
+}
+.lang-progress {
+    width: 100%;
+    margin-top: 8px;
+}
+.lang-progress span {
+    font-size: 0.98rem;
+    color: #222;
+    margin-right: 8px;
+    font-weight: 500;
+}
+.progress-bar {
+    width: 100%;
+    height: 18px;
+    background: #e0e7ff;
+    border-radius: 9px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(99,102,241,0.07);
+}
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12px;
+    transition: width 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.group-collab-img {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 12px;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.13);
+}
+.skills-tech {
+    margin-left: 18px;
+}
+.tech-skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.tech-skill {
+    background: #e0e7ff;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 1px 4px rgba(99,102,241,0.07);
+    transition: transform 0.18s;
+}
+.tech-skill:hover {
+    transform: scale(1.04);
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    color: #fff;
+}
+.tech-icon {
+    font-size: 1.2rem;
+}
+.skills-tools {
+    margin-top: 48px;
+}
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+}
+.tool-item {
+    background: #f0fdfa;
+    border-radius: 10px;
+    padding: 12px 10px;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: #222;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(99,102,241,0.07);
+    transition: background 0.18s, color 0.18s, transform 0.18s;
+    cursor: pointer;
+}
+.tool-item:hover {
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    color: #fff;
+    transform: scale(1.06);
+}
+@media (max-width: 900px) {
+    .skills-content {
+        padding: 18px 4vw 18px 4vw;
+    }
+    .skills-columns {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .skills-tech {
+        margin-left: 0;
+    }
+}
+/* Education Timeline Section */
+.education-section {
+    width: 100vw;
+    max-width: 100%;
+    background: url('education-background.jpg') no-repeat left center;
+    background-size: cover;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    border-radius: 24px 24px 0 0;
+    padding: 48px 0 64px 0;
+    margin-top: 60px;
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(40px);
+    animation: slideDownCerts 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-height: 600px;
+}
+.education-section h2 {
+    text-align: center;
+    font-size: 2.1rem;
+    margin-bottom: 36px;
+    color: #2d2d2d;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
+    display: inline-block;
+    padding: 16px 48px;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(99,102,241,0.08);
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    /* New: education list entries */
+    .edu-list {
+        max-width: 900px;
+        margin: 0 auto;
+        background: rgba(0,0,0,0.45);
+        padding: 18px;
+        border-radius: 10px;
+    }
+    .edu-entry {
+        margin: 14px 0;
+        padding: 12px;
+        border-left: 3px solid rgba(255,255,255,0.12);
+    }
+    .edu-entry h3 {
+        margin: 0 0 6px 0;
+        font-size: 1.05rem;
+    }
+    .edu-meta {
+    font-size: 0.95rem;
+    color: #111827; /* dark / black text for institution name */
+    margin-bottom: 8px;
+    font-weight: 700;
+    }
+    .edu-actions { text-align: right; margin-top: 8px; }
+    .edu-actions .nav-btn { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.18); padding: 8px 12px; border-radius:6px; }
+
+    /* Timeline layout */
+    .timeline { position: relative; padding-left: 56px; }
+    .timeline:before {
+        content: '';
+        position: absolute;
+        left: 24px;
+        top: 8px;
+        bottom: 8px;
+        width: 4px;
+        background: linear-gradient(180deg,#6366f1,#06b6d4);
+        border-radius: 4px;
+    }
+    .timeline-item { display:flex; align-items:flex-start; margin: 18px 0; position: relative; }
+    .timeline-icon { width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:#fff; color:#222; border-radius:50%; box-shadow:0 6px 18px rgba(0,0,0,0.08); position:absolute; left:-2px; top:0; transform: translateX(-6px); }
+    .timeline-card { background: #f3f4f6; padding:18px; border-radius:10px; margin-left:48px; flex:1; color:#111827; box-shadow: 0 6px 18px rgba(16,24,40,0.06); border: 1px solid rgba(0,0,0,0.04); }
+    .timeline-year { color:#3b82f6; font-weight:700; margin-bottom:8px; }
+    .edu-downloads { margin-top:12px; }
+    .download-link { display:inline-block; background: linear-gradient(90deg,#6366f1,#06b6d4); color:#fff; padding:8px 12px; border-radius:8px; text-decoration:none; box-shadow:0 6px 18px rgba(99,102,241,0.12); }
+    .download-link:hover { transform: translateY(-2px); }
+
+    @media (max-width:720px) {
+        .timeline { padding-left: 36px; }
+        .timeline-icon { left: -8px; transform: translateX(-4px); }
+        .timeline-card { margin-left: 40px; }
+    }
+.edu-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    margin: 0 5vw 0 0;
+    max-width: 600px;
+    background: linear-gradient(135deg, #e0e7ff 0%, #f0fdfa 100%);
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+}
+.edu-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 38px;
+    position: relative;
+    width: 100%;
+}
+.edu-icon {
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #fff;
+    margin-right: 24px;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.13);
+    position: relative;
+    z-index: 2;
+}
+.edu-content {
+    background: #f8fafc;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 18px 28px;
+    text-align: left;
+    flex: 1;
+    position: relative;
+}
+.edu-years {
+    font-size: 1.08rem;
+    color: #6366f1;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.edu-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: #222;
+}
+.edu-desc {
+    font-size: 1.02rem;
+    color: #444;
+    margin-top: 2px;
+}
+.edu-pdf {
+    display: inline-block;
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    color: #fff;
+    font-weight: 600;
+    padding: 7px 22px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: 8px;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.13);
+    transition: background 0.2s, color 0.2s, transform 0.18s;
+}
+.edu-pdf:hover {
+    background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
+    color: #6366f1;
+}
+.edu-timeline:before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #6366f1 0%, #06b6d4 100%);
+    border-radius: 2px;
+    z-index: 1;
+}
+.edu-item:last-child {
+    margin-bottom: 0;
+}
+@media (max-width: 900px) {
+    .skills-contact { width: calc(100% - 32px); padding: 14px 16px; }
+    .skills-contact p { font-size: 0.95rem; }
+}
+    .edu-content {
+        padding: 14px 10px;
+    }
+    .edu-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        margin-right: 12px;
+    }
+    .edu-timeline:before {
+        left: 20px;
+    }
+
+.skills-section {
+    background: transparent; /* keep section background subtle */
+    padding: 100px 0 80px 0; /* increased top padding to avoid overlapping the Education section */
+}
+.skills-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 28px;
+    align-items: start;
+}
+.skills-page-wrap {
+    max-width: 1100px;
+    margin: 24px auto 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 300px; /* left flexible, right fixed column for technical+contact */
+    gap: 28px;
+    align-items: start;
+}
+.skills-column { padding: 18px; }
+.skills-column.card { background: linear-gradient(180deg,#ffffff, #fbfdff); border-radius: 12px; box-shadow: 0 8px 30px rgba(2,6,23,0.06); }
+.skills-section {
+    position: relative;
+    overflow: hidden;
++    /* background image for Skills section (replaceable) */   
++    background-image: url('skill-background.jpg');
++    background-size: cover;
++    background-position: center center;
++    background-repeat: no-repeat;
++    /* spacing kept the same so layout is unchanged */
++    padding: 140px 0 80px 0; /* larger top padding for desktop */
++    margin-top: 120px; /* ensure a clear gap from the section above */
++    z-index: 12; /* place skills section above decorative layers if needed */
++}
+
++
++
++/* Distinct animated layers for Skills (different from certificates) */
++/* 1) Gentle slow pan of the background image for parallax/depth */
++.skills-section::before {
++    content: '';
++    position: absolute;
++    inset: 0;
++    z-index: 0;
+    pointer-events: none;
+    /* use the same image but slightly enlarged to pan smoothly */
+    background-image: url('skill-background.jpg');
+    background-size: 140% 140%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    transform: translateZ(0);
+    animation: skills-bg-pan 28s linear infinite;
+}
+
+/* 2) Soft floating particle layer created with tiny radial dots */
+.skills-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    /* many tiny dots via radial-gradient tile */
+    background-image: radial-gradient(circle, rgba(255,255,255,0.98) 1px, rgba(255,255,255,0) 2px);
+    background-size: 12px 12px;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    transform: translateZ(0);
+    /* move the particle layer slowly upwards for a drifting effect */
+    animation: skills-particles 22s linear infinite;
+}
+
+@keyframes skills-bg-pan {
+    0% { background-position: 40% 45%; }
+    50% { background-position: 60% 55%; }
+    100% { background-position: 40% 45%; }
+}
+
+@keyframes skills-particles {
+    0% { background-position: 0% 100%; opacity: 0.05; }
+    50% { background-position: 50% 20%; opacity: 0.08; }
+    100% { background-position: 100% -60%; opacity: 0.05; }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .skills-section::before,
+    .skills-section::after { animation: none !important; transition: none !important; }
+}
+.skills-page-wrap > .skills-column { position: relative; z-index: 2; }
+.skills-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+.trad-item { margin-bottom: 12px; }
+.tech-skill-row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+.tech-skill-row label { width: 170px; font-weight: 700; color: #1f2937; }
+.progress-bar { flex: 1; height: 14px; background: #e6eef9; border-radius: 10px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg,#6366f1,#06b6d4); width: 0; display:flex; align-items:center; justify-content:flex-end; padding-right:8px; color:#fff; font-weight:700; transition: width 1200ms cubic-bezier(.68,-0.55,.27,1.55); }
+.skills-section { text-align: center !important; }
+.skills-section h2 { 
+    display: inline-block !important;
+    text-align: center;
+    margin: 6px 0 22px 0 !important;
+    z-index: 2;
+    position: relative !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    color: #0b1220 !important; /* dark for high contrast */
+    background: linear-gradient(90deg, #eef6ff 0%, #f7fffb 100%) !important;
+    padding: 16px 46px !important; /* pill padding to match the Education style */
+    border-radius: 34px !important;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.12) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 1 !important;
+    white-space: nowrap !important;
+    transform: none !important;
+}
+
+@media (max-width: 900px) {
+    .skills-page-wrap { grid-template-columns: 1fr; padding: 0 18px; }
+}
+
+/* Traditional skills card visuals */
+.trad-title { text-align:center; font-size:1.25rem; margin-bottom:12px; color:#0f172a; }
+.trad-list { display:flex; flex-direction:column; gap:14px; }
+.trad-item { background: linear-gradient(180deg,#ffffff,#fbfdff); padding:14px; border-radius:10px; box-shadow: 0 6px 20px rgba(2,6,23,0.04); }
+.trad-header { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+.trad-icon { font-size:1.35rem; background: linear-gradient(90deg,#6366f1,#06b6d4); color:#fff; width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; box-shadow: 0 4px 12px rgba(99,102,241,0.12); }
+.trad-name { font-size:1.05rem; font-weight:700; color:#0f172a; }
+.trad-tag { margin-left:auto; background:#eef2ff; color:#4338ca; padding:6px 10px; border-radius:999px; font-weight:700; font-size:0.85rem; }
+.trad-item p { margin:0; color:#111827; line-height:1.5; }
+.skills-column.card:hover { transform: translateY(-6px); transition: transform 220ms ease; }
+
+
+@keyframes bgShift {
+    0% { background-position: 0% 0%, 0% 0%, 0% 0%; }
+    50% { background-position: 100% 30%, 20% 80%, 0% 0%; }
+    100% { background-position: 0% 0%, 100% 100%, 0% 0%; }
+}
+
+@keyframes gridMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-220px); }
+}
+.skills-left { /* left column wrapper for skills */
+    display: block;
+}
+.skills-heading { text-align:center; background: linear-gradient(90deg,#e0e7ff,#f0fdfa); display:inline-block; padding:10px 20px; border-radius:12px; margin-bottom:18px; font-size:1.4rem; }
+.skills-panel { display:flex; gap:18px; flex-direction:column; }
+.card { background: #fff; padding:18px; border-radius:14px; box-shadow: 0 6px 24px rgba(16,24,40,0.06); }
+.skills-nontech .skill-block { display:flex; gap:12px; align-items:center; padding:12px; border-radius:10px; background:#f0fdfa; }
+.skills-nontech .skill-block + .skill-block { margin-top:12px; }
+.skills-aside { position: sticky; top:96px; align-self:start; }
+.about-card { background: linear-gradient(180deg,#fff,#f8fafc); padding:18px; border-radius:14px; box-shadow: 0 6px 24px rgba(16,24,40,0.06); }
+.about-card h3 { margin-top:0; }
+
+@media (max-width: 980px) {
+    .skills-wrap { grid-template-columns: 1fr; padding: 0 18px; }
+    .skills-aside { position: static; }
+}
+/* Certificate Modal */
+.cert-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.cert-modal.active {
+    display: flex;
+    animation: fadeInModal 0.3s;
+}
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.cert-modal-img {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    background: #fff;
+    margin-bottom: 18px;
+}
+.cert-modal-close {
+    position: absolute;
+    top: 32px;
+    right: 48px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 10001;
+    transition: color 0.2s;
+}
+.cert-modal-close:hover {
+    color: #6366f1;
+}
+.cert-modal-download {
+    display: inline-block;
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 32px;
+    border-radius: 22px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.13);
+    margin-bottom: 12px;
+    transition: background 0.2s, color 0.2s, transform 0.18s;
+}
+.cert-modal-download:hover {
+    background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
+    color: #6366f1;
+}
+
+/* Style certificate card download links to look like buttons */
+.cert-download {
+    display: inline-block;
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.98rem;
+    box-shadow: 0 6px 18px rgba(99,102,241,0.12);
+    transition: transform 0.15s ease, background 0.18s ease, color 0.18s ease;
+    margin-top: 8px;
+}
+.cert-download:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
+    color: #6366f1;
+}
+
+/* Ensure cert-info centers the button cleanly */
+.cert-card .cert-info { display:flex; flex-direction:column; align-items:center; gap:6px; }
+
+/* Small metadata label (muted) */
+.cert-meta {
+    color: #374151;
+    font-size: 0.95rem;
+    background: transparent;
+    padding: 2px 6px;
+}
+
+/* 'View online' subtle button */
+.cert-view-btn {
+    display: inline-block;
+    background: transparent;
+    color: #374151;
+    border: 1px solid rgba(55,65,81,0.08);
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.12s, transform 0.12s, color 0.12s;
+}
+.cert-view-btn:hover {
+    background: rgba(99,102,241,0.06);
+    color: #111827;
+    transform: translateY(-2px);
+}
+
+/* download icon inside button spacing */
+.icon-download { vertical-align: middle; margin-right: 8px; stroke-width: 2; }
+
+/* ensure icons inherit white color when inside primary button */
+.cert-download .icon-download { color: #fff; stroke: currentColor; }
+/* Certificates Section */
+.certificates-section {
+    /* ensure the certificates section fills the full viewport width (no left gap) */
+    background: url('Certificate-background.jpg') no-repeat left center;
+    background-size: cover;
+    width: 100vw !important;
+    left: 0 !important;
+    margin-left: 0 !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    border-radius: 0 !important; /* remove rounded corner that reveals previous bg */
+    padding: 48px 0 64px 0;
+    margin-top: 60px;
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(40px);
+    animation: slideDownCerts 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+    text-align: center;
+
+    background: linear-gradient(270deg, #e0e7ff, #f0fdfa, #a5b4fc, #06b6d4, #e0e7ff);
+    background-size: 200% 200%;
+    animation-name: slideDownCerts, cert-gradient-bg;
+    animation-duration: 0.8s, 8s;
+    animation-timing-function: cubic-bezier(.68,-0.55,.27,1.55), ease-in-out;
+    animation-iteration-count: 1, infinite;
+}
+
+/* Animated decorative layers for certificates background */
+.certificates-section {
+    overflow: hidden; /* keep decorative layers contained */
+}
+.certificates-section::before,
+.certificates-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+.certificates-section::before {
+    background: radial-gradient(circle at 10% 20%, rgba(99,102,241,0.12), transparent 12%),
+                radial-gradient(circle at 85% 80%, rgba(6,182,212,0.10), transparent 14%);
+    mix-blend-mode: screen;
+    filter: blur(28px) saturate(110%);
+    transform: translate3d(0,0,0);
+    animation: cert-blob-float 14s ease-in-out infinite;
+    opacity: 0.9;
+}
+.certificates-section::after {
+    background-image: 
+        /* subtle moving grid overlays */
+        linear-gradient(120deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 56px),
+        linear-gradient(30deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 56px),
+        /* animated diagonal shimmer (soft highlight) */
+        linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.00) 22%);
+    opacity: 0.6;
+    transform: translate3d(0,0,0);
+    /* overlay movement + shimmer */
+    animation: cert-overlay-move 28s linear infinite, cert-shimmer 6s linear infinite;
+}
+
+@keyframes cert-blob-float {
+    0% { transform: translateY(0) scale(1); }
+    25% { transform: translateY(-18px) scale(1.02); }
+    50% { transform: translateY(0) scale(1); }
+    75% { transform: translateY(12px) scale(0.99); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes cert-overlay-move {
+    0% { background-position: 0% 0%, 0% 0%; }
+    100% { background-position: 0% -220px, 0% -120px; }
+}
+
+@keyframes cert-shimmer {
+    0% {
+        background-position: -200% -50%, -200% -50%, -200% -50%;
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.12;
+    }
+    50% {
+        background-position: 30% 30%, 30% 30%, 30% 30%;
+        opacity: 0.06;
+    }
+    100% {
+        background-position: 200% 120%, 200% 120%, 200% 120%;
+        opacity: 0;
+    }
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .certificates-section::before,
+    .certificates-section::after {
+    animation: none !important;
+    transition: none !important;
+    }
+}
+
+
+    @keyframes cert-gradient-bg {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+@keyframes slideDownCerts {
+    0% { opacity: 0; transform: translateY(120px); }
+    100% { opacity: 1; transform: translateY(40px); }
+
+    
+}
+.certificates-section h2 {
+    text-align: center;
+    font-size: 2.1rem;
+    margin-bottom: 36px;
+    color: #2d2d2d;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(99,102,241,0.08);
+    /* ...existing styles... */
+        display: inline-block;
+        padding: 16px 48px;
+        border-radius: 18px;
+        box-shadow: 0 2px 12px rgba(99,102,241,0.08);
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 36px;
+    padding: 0 32px 36px 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start; /* keep cards aligned to top */
+    justify-items: center; /* center cards in each column */
+    box-sizing: border-box;
+}
+.cert-card {
+    background: #f8fafc;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 18px;
+    width: 100%;
+    max-width: 320px; /* control maximum card width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.18s, box-shadow 0.18s;
+    position: relative;
+    box-sizing: border-box;
+}
+.cert-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(99,102,241,0.13);
+}
+.cert-img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    background: #e0e7ef;
+}
+.cert-info {
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+}
+.cert-link {
+    font-size: 0.98rem;
+    color: #6366f1;
+    word-break: break-all;
+    background: #e0e7ff;
+    border-radius: 8px;
+    padding: 4px 10px;
+    display: inline-block;
+    margin-top: 4px;
+}
+/* ensure links and text wrap cleanly inside cards */
+.cert-card .cert-info, .cert-card .cert-link, .cert-card .cert-download { word-wrap: break-word; overflow-wrap: anywhere; }
+@media (max-width: 900px) {
+    .cert-grid {
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    .cert-card {
+        width: 90vw;
+        max-width: 320px;
+    }
+    .cert-img {
+        width: 90vw;
+        max-width: 220px;
+        height: 120px;
+    }
+}
+/* Top Navigation Bar */
+.top-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 28px 0 18px 0;
+    /* Remove position: fixed so nav stays at top of main page only */
+    /* position: fixed; */
+    /* top: 0; */
+    /* left: 0; */
+    /* z-index: 100; */
+}
+
+.nav-btn {
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: #2d2d2d;
+    background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
+    border: none;
+    border-radius: 22px;
+    padding: 12px 32px;
+    margin: 0 2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.18s;
+    outline: none;
+    letter-spacing: 0.5px;
+}
+.nav-btn:hover, .nav-btn:focus {
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 0 4px 16px rgba(99,102,241,0.13);
+}
+
+
+.about-me #about-typing {
+    display: block;
+    min-height: 120px;
+    font-size: 1.08rem;
+    color: #222;
+    white-space: pre-line;
+    padding-right: 4px;
+}
+
+/* About paragraph animation */
+.about-paragraph {
+    width: 100%;
+    max-width: 520px;
+    margin-top: 12px;
+    text-align: left;
+    color: #111;
+    overflow: hidden;
+}
+.about-paragraph p {
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+    animation: aboutFadeIn 900ms ease-out 200ms forwards;
+}
+@keyframes aboutFadeIn {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #888; }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 60px;
+}
+
+.profile-pic-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.profile-pic {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    cursor: pointer;
+    position: relative;
+    /* Remove transform transition, use animation on hover */
+}
+
+@keyframes upDown {
+    0% { transform: translateY(0); }
+    20% { transform: translateY(-8px); }
+    50% { transform: translateY(0); }
+    80% { transform: translateY(8px); }
+    100% { transform: translateY(0); }
+}
+
+.profile-pic:hover {
+    animation: upDown 1.2s cubic-bezier(.68,-0.55,.27,1.55) infinite;
+}
+
+.about-me {
+    background: rgba(255,255,255,0.85);
+    padding: 32px 36px;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    max-width: 480px;
+    min-width: 320px;
+}
+
+@media (max-width: 900px) {
+    .skills-page-wrap { grid-template-columns: 1fr; padding: 0 18px; }
+    .skills-right-column { width: 100%; }
+    .about-me { min-width: 0; width: 90vw; }
+}
+
+/* Strong override to ensure Skills section sits below Education and avoids overlap */
+html body .skills-section {
+    /* keep a vertical gap but make the section span full viewport width */
+    /* use the full viewport width to avoid left-side gap */
+    width: 100vw !important;
+    left: 0 !important;
+    margin-left: 0 !important;
+    box-sizing: border-box !important;
+    padding-top: 90px !important; /* desired vertical gap above Skills */
+    padding-left: 0 !important; /* remove horizontal indentation */
+    padding-right: 0 !important; /* remove horizontal indentation */
+    margin-top: 60px !important;  /* gap from previous section */
+    z-index: 20 !important;
+    border-radius: 0 !important; /* ensure no rounded corner shows previous section */
+}
+
+@media (max-width: 900px) {
+    /* reduce spacing on smaller screens so content remains visible without excessive scroll */
+    html body .skills-section {
+        padding-top: 60px !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        margin-top: 30px !important;
+    }
+}
+
+/* Remove persistent translate on education section so it sits flush with the next section */
+html body .education-section {
+    transform: none !important;
+    margin-bottom: 0 !important;
+}
+
+/* Ensure the Skills title is centered and the decorative pill only wraps the text */
+#skills-section h2,
+.skills-section h2,
+.skills-heading {
+    display: inline-block !important;
+    margin: 0 auto !important;
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    text-align: center !important;
+    white-space: nowrap; /* keep the pill a single line */
+    padding: 12px 28px !important; /* slightly reduced padding to match title width */
+    max-width: 95%;
+}

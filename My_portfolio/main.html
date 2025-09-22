@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Portfolio</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="skills-fix.css">
+	<!-- Inline fallback CSS: temporary, ensures page is styled while troubleshooting external stylesheet -->
+	<style>
+	/* Minimal fallback to restore layout and basic visuals */
+	body{margin:0; padding:0; font-family: Arial, sans-serif; background: url('background.png') no-repeat center center fixed; background-size: cover;}
+	.top-nav{width:100%; display:flex; justify-content:center; gap:24px; padding:20px 0;}
+	.nav-btn{font-size:1rem; font-weight:600; padding:10px 20px; border-radius:20px; background:#eef2ff; border:none; cursor:pointer;}
+	.profile-pic{width:280px; height:280px; border-radius:50%; object-fit:cover; box-shadow:0 4px 24px rgba(0,0,0,0.2);}
+	/* Keep education background from being overridden by fallback styles */
+	.about-me { background: rgba(255,255,255,0.9); margin:18px; padding:16px; border-radius:12px; }
+	.cert-grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:24px; max-width:1100px; margin:12px auto;}
+	</style>
+	<meta name="referrer" content="no-referrer">
+</head>
+<body>
+	<nav class="top-nav">
+		<a class="nav-btn" href="projects.html">Projects</a>
+		<button class="nav-btn" id="cert-btn">Certifications</button>
+		<button class="nav-btn" id="edu-btn">Education</button>
+		<button class="nav-btn" id="skills-btn">Skills</button>
+	<!-- Contact nav removed per user request -->
+	</nav>
+	<div id="main-section" class="main-container">
+	<div class="profile-pic-container">
+			<img src="mypic.jpg" alt="My Picture" class="profile-pic">
+		</div>
+
+		
+					<!-- Skills section removed per user request -->
+			<div class="about-me">
+				<div style="font-family:'Times New Roman', Times, serif;font-weight:bold;font-size:2.2rem;margin-bottom:14px;">Thaneswaren Rajasegaran</div>
+			<h1>About Me</h1>
+			<div class="about-paragraph">
+				<p>Asia Pacific University and De Montfort University coursework have shaped a strong foundation in Information Technology and Cybersecurity, with ongoing focus on software development, penetration testing, cryptography, and digital forensics. Hands-on research roles and academic projects have developed proficiency in reverse engineering, ethical hacking, and data analytics.<br><br>Contributions to research at Monash University emphasized teamwork in experimental design and data analysis, while a brief tenure as a Software Developer at Waix.uk integrated practical coding with cybersecurity principles. Motivated to bridge technical expertise with real-world security challenges, leveraging curiosity and analytical skills to uncover vulnerabilities and enhance system resilience.</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Certificates Section (below main page) -->
+	<section id="certificates-section" class="certificates-section">
+		<h2>Certificates</h2>
+	<!-- Certificate modal (lightbox) - used by script.js -->
+	<div id="cert-modal" class="cert-modal" role="dialog" aria-hidden="true" aria-labelledby="cert-modal-title">
+		<button class="cert-modal-close" aria-label="Close">&times;</button>
+		<img id="cert-modal-img" class="cert-modal-img" src="" alt="Certificate preview">
+		<a id="cert-modal-download" class="cert-modal-download" href="#" download>Download</a>
+	</div>
+
+	<!-- load site script -->
+	<script src="script.js"></script>
+		<div class="cert-grid">
+			<div class="cert-card">
+				<img src="Cloud computing .jpg" alt="Cloud Computing" class="cert-img" data-cert="Cloud computing .jpg" loading="lazy">
+				<div class="cert-info">
+					<span class="cert-meta">Cert ID: 414013</span>
+					<a href="Cloud computing .jpg" download class="cert-download" aria-label="Download Cloud computing certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+			<div class="cert-card">
+				<img src="Google analytic .jpg" alt="Google Analytic" class="cert-img" data-cert="Google analytic .jpg" loading="lazy">
+				<div class="cert-info">
+					<span class="cert-meta">Cert ID: 189502069</span>
+					<a href="Google analytic .jpg" download class="cert-download" aria-label="Download Google Analytics certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+			<div class="cert-card">
+				<img src="intro cyber.jpg" alt="Introduction Cybersecurity" class="cert-img" data-cert="intro cyber.jpg" loading="lazy">
+				<div class="cert-info">
+					<a class="cert-view-btn" href="https://info.credly.com/" target="_blank" rel="noopener" aria-label="View certificate on Credly">View online</a>
+					<a href="intro cyber.jpg" download class="cert-download" aria-label="Download Introduction Cybersecurity certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+			<div class="cert-card">
+				<img src="Linux 1.jpg" alt="Red Hat System Administration I (RH124)" class="cert-img" data-cert="Linux 1.jpg" loading="lazy">
+				<div class="cert-info">
+					<a href="Linux 1.jpg" download class="cert-download" aria-label="Download Red Hat System Administration I certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+			<div class="cert-card">
+				<img src="Linux 2 .jpg" alt="Red Hat System Administration II (RH134-RHA) - Ver.9.3" class="cert-img" data-cert="Linux 2 .jpg" loading="lazy">
+				<div class="cert-info">
+					<a href="Linux 2 .jpg" download class="cert-download" aria-label="Download Red Hat System Administration II certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+			<div class="cert-card">
+				<img src="monash.jpg" alt="Data Analytic Hackathon" class="cert-img" data-cert="monash.jpg" loading="lazy">
+				<div class="cert-info">
+					<a href="monash.jpg" download class="cert-download" aria-label="Download Data Analytic Hackathon certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+			<div class="cert-card">
+				<img src="Robotic cert.jpg" alt="Robotic Bootcamp" class="cert-img" data-cert="Robotic cert.jpg" loading="lazy">
+				<div class="cert-info">
+					<a href="Robotic cert.jpg" download class="cert-download" aria-label="Download Robotic Bootcamp certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+			<div class="cert-card">
+				<img src="Screenshot 2023-07-28 162339.png" alt="Ethical Hacking" class="cert-img" data-cert="Screenshot 2023-07-28 162339.png" loading="lazy">
+				<div class="cert-info">
+					<a class="cert-view-btn" href="https://olympus.mygreatlearning.com/courses/12629" target="_blank" rel="noopener" aria-label="View course on Great Learning">View online</a>
+					<a href="Screenshot 2023-07-28 162339.png" download class="cert-download" aria-label="Download Ethical Hacking certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+			<div class="cert-card">
+				<img src="Screenshot 2023-07-31 195742.png" alt="Pyhton Projects" class="cert-img" data-cert="Screenshot 2023-07-31 195742.png" loading="lazy">
+				<div class="cert-info">
+					<a class="cert-view-btn" href="https://olympus.mygreatlearning.com/courses/4936" target="_blank" rel="noopener" aria-label="View course on Great Learning">View online</a>
+					<a href="Screenshot 2023-07-31 195742.png" download class="cert-download" aria-label="Download Python Projects certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+			<div class="cert-card">
+				<img src="Cisco Ethical Hacking.png" alt="Cisco verified Ethical Hacking" class="cert-img" data-cert="Cisco Ethical Hacking.png" loading="lazy">
+				<div class="cert-info">
+					<a class="cert-view-btn" href="https://www.credly.com/badges/aeb92f57-cf6c-41ba-b5e7-2a7e20d26d7a" target="_blank" rel="noopener" aria-label="View Cisco badge on Credly">View online</a>
+					<a href="Cisco Ethical Hacking.png" download class="cert-download" aria-label="Download Cisco Ethical Hacking certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+			<div class="cert-card">
+				<img src="CTF Cert.png" alt="Capture the Flag" class="cert-img" data-cert="CTF cert.png" loading="lazy">
+				<div class="cert-info">
+					<a href="CTF Cert.png" download class="cert-download" aria-label="Download Capture the Flag certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+			<div class="cert-card">
+				<img src="cyber.jpg" alt="Cyber certificate" class="cert-img" data-cert="cyber.jpg" loading="lazy">
+				<div class="cert-info">
+					<span class="cert-meta">Cert ID: 165820</span>
+					<a href="Screenshot 2023-07-31 195742.png" download class="cert-download" aria-label="Download Cyber certificate">
+						<svg class="icon-download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Download
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Education Section (below certificates section) -->
+	<section id="education-section" class="education-section">
+		<h2>Education</h2>
+		<div class="edu-timeline">
+			<div class="edu-item">
+				<div class="edu-content">
+					<!-- Cool SVG animation background -->
+					<svg class="skills-anim-bg" width="100%" height="220" viewBox="0 0 1440 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;z-index:0;pointer-events:none;">
+					  <defs>
+						<linearGradient id="skillsWave" x1="0" y1="0" x2="1440" y2="220" gradientUnits="userSpaceOnUse">
+						  <stop stop-color="#6366f1"/>
+						  <stop offset="1" stop-color="#06b6d4"/>
+						</linearGradient>
+					  </defs>
+					  <path id="wavePath" d="M0,120 Q360,200 720,120 T1440,120 V220 H0 Z" fill="url(#skillsWave)">
+						<animate attributeName="d" dur="7s" repeatCount="indefinite"
+						  values="M0,120 Q360,200 720,120 T1440,120 V220 H0 Z;
+								  M0,120 Q360,80 720,180 T1440,120 V220 H0 Z;
+								  M0,120 Q360,200 720,120 T1440,120 V220 H0 Z"/>
+					  </path>
+					</svg>
+					<div class="edu-list timeline">
+						<!-- Timeline item: SPM -->
+						<div class="timeline-item">
+							<div class="timeline-icon" aria-hidden="true">🏫</div>
+							<div class="timeline-card">
+								<div class="timeline-year">2017 - 2021</div>
+								<h3>SPM (Sijil Pelajaran Malaysia)</h3>
+								<div class="edu-meta">SMK Seri Kembangan</div>
+								<p>General secondary education with strong results in Mathematics and Science.</p>
+								<div class="edu-downloads">
+									<a class="download-link" href="SPM_Result.pdf" download>Download SPM (PDF)</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Timeline item: Diploma -->
+						<div class="timeline-item">
+							<div class="timeline-icon" aria-hidden="true">🕵️‍♂️</div>
+							<div class="timeline-card">
+								<div class="timeline-year">2022 - 2024</div>
+								<h3>Diploma in Information Technology — Specialism in Software Engineering</h3>
+								<div class="edu-meta">College / Pre-University</div>
+								<p>Focused on programming fundamentals, software design, networks, and system administration.</p>
+								<div class="edu-downloads">
+									<a class="download-link" href="Diploma_Transcript.pdf" download>Download Transcript (PDF)</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Timeline item: Bachelor's Degree -->
+						<div class="timeline-item">
+							<div class="timeline-icon" aria-hidden="true">🎓</div>
+							<div class="timeline-card">
+								<div class="timeline-year">2024 - 2026</div>
+								<h3>Bachelor's of Computer Science — Specialism in Cyber Security</h3>
+								<div class="edu-meta">Asia Pacific University & De Montfort University (Dual Degree)</div>
+								<p>Coursework included software development, penetration testing, cryptography, digital forensics and research projects in reverse engineering and data analytics.</p>
+								<div class="edu-downloads">
+									<a class="download-link" href="Degree_Transcript.pdf" download>Download Degree Transcript (PDF)</a>
+								</div>
+							</div>
+						</div>
+
+                        
+					</div>
+                </div>
+			</div>
+		</section>
+
+	<!-- Skills Section (in-page, below Education) -->
+	<section id="skills-section" class="skills-section">
+		<h2>Skills</h2>
+		<div class="skills-page-wrap">
+			<div class="skills-column skills-traditional card">
+				<h3 class="trad-title">Traditional Skills</h3>
+				<div class="trad-list">
+					<div class="trad-item">
+						<div class="trad-header"><span class="trad-icon">🧭</span><strong class="trad-name">Leadership</strong><span class="trad-tag">Team Lead</span></div>
+						<p>Led the data-collection team for a research project, coordinating tasks, timelines, and quality assurance to deliver accurate, reproducible results.</p>
+					</div>
+					<div class="trad-item">
+						<div class="trad-header"><span class="trad-icon">🤝</span><strong class="trad-name">Group Collaboration</strong><span class="trad-tag">Hackathons</span></div>
+						<p>Played a central role in multiple hackathon-winning teams by facilitating communication, dividing responsibilities, and driving collaborative problem-solving (group photo to be attached).</p>
+					</div>
+					<div class="trad-item">
+						<div class="trad-header"><span class="trad-icon">💬</span><strong class="trad-name">Languages</strong><span class="trad-tag">Multilingual</span></div>
+						<p>English — fluent (speaking, reading, listening); Malay — fluent (speaking, listening, reading); Tamil — conversational.</p>
+					</div>
+					<div class="trad-item">
+						<div class="trad-header"><span class="trad-icon">🧩</span><strong class="trad-name">Problem Solving</strong><span class="trad-tag">Analytical</span></div>
+						<p>Skilled in structured problem solving and debugging; applies analytical approaches and data-driven techniques to diagnose issues and implement robust solutions.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="skills-column skills-technical card">
+				<h3>Technical Skills</h3>
+				<div class="tech-skill-row">
+					<label>Python</label>
+					<div class="progress-bar"><div class="progress-fill" data-width="92%" style="width:0;">92%</div></div>
+				</div>
+				<div class="tech-skill-row">
+					<label>HTML</label>
+					<div class="progress-bar"><div class="progress-fill" data-width="88%" style="width:0;">88%</div></div>
+				</div>
+				<div class="tech-skill-row">
+					<label>JAVA</label>
+					<div class="progress-bar"><div class="progress-fill" data-width="76%" style="width:0;">76%</div></div>
+				</div>
+				<div class="tech-skill-row">
+					<label>R Programming</label>
+					<div class="progress-bar"><div class="progress-fill" data-width="74%" style="width:0;">74%</div></div>
+				</div>
+				<div class="tech-skill-row">
+					<label>Data Analysis</label>
+					<div class="progress-bar"><div class="progress-fill" data-width="86%" style="width:0;">86%</div></div>
+				</div>
+				<div class="tech-skill-row">
+					<label>Linux administrator</label>
+					<div class="progress-bar"><div class="progress-fill" data-width="80%" style="width:0;">80%</div></div>
+				</div>
+			</div>
+
+		</div>
+	</section>

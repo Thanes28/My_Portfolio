@@ -1,0 +1,70 @@
+/* Skills override: clean, focused rules to provide background image and distinct animation
+   This file intentionally minimal and loaded after style.css to override malformed rules.
+*/
+
+/* Ensure this rule takes precedence */
+html body .skills-section {
+    width: 100vw;
+    max-width: 100%;
+    min-height: 700px;
+    position: relative;
+    padding: 140px 0 80px 0;
+    overflow: hidden;
+    z-index: 12;
+    background-image: url('skill-background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* content container should sit above decorative layers */
+.skills-section .skills-content { position: relative; z-index: 2; }
+
+/* Gentle slow pan layer (parallax-like) */
+html body .skills-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url('skill-background.jpg');
+    background-size: 140% 140%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    transform: translateZ(0);
+    animation: skills-bg-pan 28s linear infinite;
+}
+
+/* Soft floating particle overlay */
+html body .skills-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.98) 1px, rgba(255,255,255,0) 2px);
+    background-size: 12px 12px;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    transform: translateZ(0);
+    animation: skills-particles 22s linear infinite;
+}
+
+@keyframes skills-bg-pan {
+    0% { background-position: 40% 45%; }
+    50% { background-position: 60% 55%; }
+    100% { background-position: 40% 45%; }
+}
+
+@keyframes skills-particles {
+    0% { background-position: 0% 100%; opacity: 0.05; }
+    50% { background-position: 50% 20%; opacity: 0.08; }
+    100% { background-position: 100% -60%; opacity: 0.05; }
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    html body .skills-section::before,
+    html body .skills-section::after { animation: none !important; transition: none !important; }
+}
